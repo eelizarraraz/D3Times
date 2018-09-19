@@ -138,12 +138,6 @@ d3.csv("data.csv", function(err, data) {
     .attr("opacity", ".5")
     .style("stroke-width", ".2")
 
-
-
-           
-
-
-
   // Create group for  2 x- axis labels
   var labelsGroup = chartGroup.append("g")
     .attr("transform", `translate(${width / 2}, ${height + 20})`);
