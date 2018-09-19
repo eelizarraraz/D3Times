@@ -11,8 +11,7 @@ var margin = {
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 
-// Create an SVG wrapper, append an SVG group that will hold our chart,
-// and shift the latter by left and top margins.
+// SVG Wrapper
 var svg = d3
   .select("#scatter")
   .append("svg")
@@ -34,9 +33,7 @@ function xScale(data, chosenXAxis) {
       d3.max(data, d => d[chosenXAxis]) * 1.2
     ])
     .range([0, width]);
-
   return xLinearScale;
-
 }
 
 // function used for updating xAxis var upon click on axis label
@@ -46,18 +43,15 @@ function renderAxes(newXScale, xAxis) {
   xAxis.transition()
     .duration(1000)
     .call(bottomAxis);
-
   return xAxis;
 }
 
 // function used for updating circles group with a transition to
 // new circles
 function renderCircles(circlesGroup, newXScale, chosenXaxis) {
-
   circlesGroup.transition()
     .duration(1000)
     .attr("cx", d => newXScale(d[chosenXAxis]));
-
   return circlesGroup;
 }
 
